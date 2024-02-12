@@ -19,6 +19,16 @@ const config = {
     },
     extend: {
       colors: {
+        dmbg: "#0B0C10",
+        dmsbg: "#1F2833",
+        dmtext: "#C5C6C7",
+        dmlinks: "#66FCF1",
+        dmeffects: "#45A29E",
+        lmbg: "#F7F7F7",
+        lmsbg: "#F5FBFF",
+        lmtext: "#72707B",
+        lmlinks: "#DFEFFD",
+        lmeffects: "#C5DDE7",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
