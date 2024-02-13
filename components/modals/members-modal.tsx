@@ -104,6 +104,7 @@ export const MembersModal = () => {
                                     <DropdownMenu>
                                         <DropdownMenuTrigger>
                                             <MoreVertical className="h-4 w-4 text-dmlinks"/>
+                                        </DropdownMenuTrigger>
                                             <DropdownMenuContent side="left">
                                                 <DropdownMenuSub>
                                                     <DropdownMenuSubTrigger className="flex items-center">
@@ -137,7 +138,6 @@ export const MembersModal = () => {
                                                     Remove
                                                 </DropdownMenuItem>
                                             </DropdownMenuContent>
-                                        </DropdownMenuTrigger>
                                     </DropdownMenu>
                                 </div>
                             )}
