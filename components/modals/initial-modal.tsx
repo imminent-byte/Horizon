@@ -7,14 +7,13 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
 import {
+    Dialog,
     DialogContent,
     DialogDescription,
     DialogFooter,
     DialogHeader,
     DialogTitle
 } from "@/components/ui/dialog";
-
-import { Dialog } from "@/components/ui/initial-modal-dialog";
 
 import {
     Form,
