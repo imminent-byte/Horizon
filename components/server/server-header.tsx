@@ -39,10 +39,12 @@ const ServerHeader = ({
             </button>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-56 text-xs font-medium text-black dark:text-dmtext space-y-[2px]">
-            <DropdownMenuItem onClick={() => onOpen("invite", { server })} className="text-lmlinks dark:text-dmlinks px-3 py-2 text-sm cursor-pointer">
-                Invite People
+            {isAdmin && (
+                <DropdownMenuItem onClick={() => onOpen("invite", { server })} className="text-lmlinks dark:text-dmlinks px-3 py-2 text-sm cursor-pointer">
+                    Invite People
                 <UserPlus2 className="h-4 w-4 ml-auto"/>
-            </DropdownMenuItem>
+                </DropdownMenuItem>
+            )}
             {isAdmin && (
                 <DropdownMenuItem className="px-3 py-2 text-sm cursor-pointer">
                     Server Settings
