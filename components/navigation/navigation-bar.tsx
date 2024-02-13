@@ -4,6 +4,12 @@ import { redirect } from 'next/navigation';
 import db from '@/lib/db';
 
 import NavigationAction from './navigation-action';
+import { NavigationItem } from './navigation-item';
+
+import { Separator } from '../ui/separator';
+import { ScrollArea } from '../ui/scroll-area';
+import { ModeToggle } from '../toggle-mode';
+import { UserButton } from '@clerk/nextjs';
 
 const NavigationBar = async () => {
     const profile = await currentProfile();
@@ -27,6 +33,33 @@ const NavigationBar = async () => {
         text-lmtext bg-lmsbg
     '>
         <NavigationAction/>
+        <Separator
+            className='w-[2px] h-10 rounded-md
+                bg-lmeffects dark:bg-dmeffects'
+        />
+        {/* if nething wrong change classname of scroll area */}
+        <ScrollArea className='flex-1 w-full'>
+            {servers.map((server) => (
+                <div key={server.id} className='mb-4'>
+                    <NavigationItem
+                        id={server.id}
+                        name={server.name}
+                        imageUrl={server.imageUrl}
+                    />
+                </div>
+            ))}
+        </ScrollArea>
+        <div className='pb-3 mt-auto flex items-center gap-x-4'>
+                <ModeToggle/>
+                <UserButton
+                    afterSignOutUrl='/'
+                    appearance={{
+                        elements: {
+                            avatarBox: "h-[45px] w-[45px]"
+                        }
+                    }}
+                />
+        </div>
     </div>
   )
 }
