@@ -7,7 +7,7 @@ import NavigationAction from './navigation-action';
 import { NavigationItem } from './navigation-item';
 
 import { Separator } from '../ui/separator';
-import { ScrollArea } from '../ui/scroll-area';
+import { ScrollArea, ScrollBar } from '../ui/scroll-area';
 import { ModeToggle } from '../toggle-mode';
 import { UserButton } from '@clerk/nextjs';
 
@@ -38,9 +38,9 @@ const NavigationBar = async () => {
                 bg-lmeffects dark:bg-dmeffects'
         />
         {/* if nething wrong change classname of scroll area */}
-        <ScrollArea className='flex-1 w-full'>
+        <ScrollArea className='flex-1 w-full whitespace-nowrap'>
             {servers.map((server) => (
-                <div key={server.id} className='mb-4'>
+                <div key={server.id} className='shrink-0'>
                     <NavigationItem
                         id={server.id}
                         name={server.name}
@@ -48,6 +48,7 @@ const NavigationBar = async () => {
                     />
                 </div>
             ))}
+            <ScrollBar orientation='horizontal'/>
         </ScrollArea>
         <div className='pb-3 mt-auto flex items-center gap-x-4'>
                 <ModeToggle/>
