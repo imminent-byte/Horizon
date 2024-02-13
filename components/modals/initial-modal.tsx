@@ -30,6 +30,8 @@ import { useEffect, useState } from "react";
 import { Exo } from "next/font/google";
 import { cn } from "@/lib/utils";
 
+import { FileUpload } from "../file-upload";
+
 const font = Exo({weight: ['100'] , subsets: ["latin"] });
 
 const formSchema = z.object({
@@ -52,7 +54,7 @@ export const InitialModal = () => {
         resolver: zodResolver(formSchema),
         defaultValues: {
             name: '',
-            imageUrl: ','
+            imageUrl: ''
         }
     })
 
@@ -88,13 +90,27 @@ export const InitialModal = () => {
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
                         <div className="space-y-8 px-6">
                             <div className="flex items-center justify-center text-center">
-                                IMAGE UPLOAD
+                                <FormField
+                                    control={form.control}
+                                    name="imageUrl"
+                                    render={({ field }) => (
+                                        <FormItem>
+                                            <FormControl>
+                                                <FileUpload
+                                                    endpoint="serverImage"
+                                                    value={field.value}
+                                                    onChange={field.onChange}
+                                                />
+                                            </FormControl>
+                                        </FormItem>
+                                    )}
+                                />
                             </div>
 
                             <FormField
                                 control={form.control}
                                 name="name"
-                                render={({field}) => (
+                                render={({ field }) => (
                                     <FormItem>
                                         <FormLabel className="uppercase text-xs font-bold text-lmtext dark:text-dmtext">
                                             Name
