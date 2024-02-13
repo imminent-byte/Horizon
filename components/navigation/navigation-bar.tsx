@@ -37,9 +37,8 @@ const NavigationBar = async () => {
             className='w-[2px] h-10 rounded-md
                 bg-lmeffects dark:bg-dmeffects'
         />
-        {/* if nething wrong change classname of scroll area */}
     <ScrollArea className="w-full whitespace-nowrap rounded-md">
-      <div className="flex w-max space-x-4 p-4">
+      <div className="flex w-max space-x-1 p-4">
         {servers.map((server) => (
           <div key={server.id} className="shrink-0">
             <div className="overflow-hidden rounded-md">
