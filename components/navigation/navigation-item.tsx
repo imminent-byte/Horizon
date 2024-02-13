@@ -28,9 +28,9 @@ export const NavigationItem = ({
         <ActionTooltip side="bottom" align="center" label={name}>
             <button onClick={onClick} className="group relative flex items-center">
                 <div className={cn(
-                 "absolute left-0 bg-primary rounded-r-full transition-all w-[4px]",
-                    params?.serverId !== id && "group-hover:h-[20px]",
-                    params?.serverId === id ? "h-[36px]" : 'h-[8px]'
+                 "absolute left-0 mr-2 bg-primary rounded-full transition-all w-[5px] h-[5px]",
+                    params?.serverId !== id && "group-hover:h-[7px] w-[7px]",
+                    params?.serverId === id ? "w-[10px] h-[10px]" : 'h-[8px] w-[8px]'
                 )}/>
                 <div className={cn(
                     "relative group flex mx-3 h-[48px] w-[48px] rounded-[24px] group-hover:rounded-[16px] transition-all overflow-hidden",

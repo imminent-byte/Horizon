@@ -50,7 +50,7 @@ const NavigationBar = async () => {
             ))}
             <ScrollBar orientation='horizontal'/>
         </ScrollArea>
-        <div className='pb-3 mt-auto flex items-center gap-x-4'>
+        <div className='pb-2 mt-auto flex items-center gap-x-4'>
                 <ModeToggle/>
                 <UserButton
                     afterSignOutUrl='/'
