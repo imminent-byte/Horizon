@@ -38,18 +38,22 @@ const NavigationBar = async () => {
                 bg-lmeffects dark:bg-dmeffects'
         />
         {/* if nething wrong change classname of scroll area */}
-        <ScrollArea className='flex-1 w-full whitespace-nowrap'>
-            {servers.map((server) => (
-                <div key={server.id} className='shrink-0'>
-                    <NavigationItem
-                        id={server.id}
-                        name={server.name}
-                        imageUrl={server.imageUrl}
-                    />
-                </div>
-            ))}
-            <ScrollBar orientation='horizontal'/>
-        </ScrollArea>
+    <ScrollArea className="w-full whitespace-nowrap rounded-md">
+      <div className="flex w-max space-x-4 p-4">
+        {servers.map((server) => (
+          <div key={server.id} className="shrink-0">
+            <div className="overflow-hidden rounded-md">
+                <NavigationItem
+                    id={server.id}
+                    name={server.name}
+                    imageUrl={server.imageUrl}
+                />
+            </div>
+          </div>
+        ))}
+      </div>
+      <ScrollBar orientation="horizontal" />
+    </ScrollArea>
         <div className='pb-2 mt-auto flex items-center gap-x-4'>
                 <ModeToggle/>
                 <UserButton
