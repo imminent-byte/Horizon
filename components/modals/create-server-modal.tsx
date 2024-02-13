@@ -73,6 +73,7 @@ export const CreateServerModal = () => {
 
             router.refresh();
 
+            onClose();
         } catch (error) {
             console.log(error);
         }
@@ -91,14 +92,11 @@ export const CreateServerModal = () => {
                 dark:bg-dmbg dark:text-dmtext
             ">
                 <DialogHeader className="pt-8 px-6">
-                    <div className={cn("p-7 text-center text-[2.25rem] leading-[3rem]", font.className)}>
-                        Welcome to HORIZON
-                    </div>
                     <DialogTitle className="text-2xl text-center font-bold">
                         Create Your Domain
                     </DialogTitle>
                     <DialogDescription className="text-center text-zinc-500">
-                        Your Domain is what you create it, give it a Name and Image to Get Started
+                        Your Domain is what you create it
                     </DialogDescription>
                 </DialogHeader>
                 <Form {...form}>
