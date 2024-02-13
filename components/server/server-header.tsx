@@ -14,6 +14,8 @@ import {
 
 import { ChevronDown, LucideLogOut, PlusCircle, Settings, Trash, UserPlus2, Users2 } from "lucide-react";
 
+import { useModal } from "@/hooks/use-modal-store";
+
 interface ServerHeaderProps {
     server: ServerWithMembersWithProfiles;
     role?: MemberRole;
@@ -23,6 +25,8 @@ const ServerHeader = ({
     server,
     role
 }: ServerHeaderProps) => {
+    const { onOpen } = useModal();
+
     const isAdmin = role === MemberRole.ADMIN;
     const isModerator = isAdmin || role === MemberRole.MODERATOR;
 
@@ -35,7 +39,7 @@ const ServerHeader = ({
             </button>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-56 text-xs font-medium text-black dark:text-dmtext space-y-[2px]">
-            <DropdownMenuItem className="text-lmlinks dark:text-dmlinks px-3 py-2 text-sm cursor-pointer">
+            <DropdownMenuItem onClick={() => onOpen("invite", { server })} className="text-lmlinks dark:text-dmlinks px-3 py-2 text-sm cursor-pointer">
                 Invite People
                 <UserPlus2 className="h-4 w-4 ml-auto"/>
             </DropdownMenuItem>
