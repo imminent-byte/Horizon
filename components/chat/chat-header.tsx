@@ -27,7 +27,7 @@ export const ChatHeader = ({
                 </p>
             </div>
             <div>
-                <MemberToggle/>
+                <MemberToggle serverId={serverId}/>
             </div>
         </div>
     )
