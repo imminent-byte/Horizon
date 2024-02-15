@@ -61,7 +61,7 @@ export const MemberToggle = async ({
                     <Users className="text-dmeffects/55"/>
                 </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="p-0 flex gap-0">
+            <SheetContent side="right">
             {!!members?.length && (
             <div className="mb-2">
                 <ServerSection
@@ -74,6 +74,7 @@ export const MemberToggle = async ({
                     <ServerMember
                         member={member}
                         server={server}
+                        profile={profile}
                     />
                 ))}
             </div>

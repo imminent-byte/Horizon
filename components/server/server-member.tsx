@@ -6,10 +6,12 @@ import { Shield, ShieldCheck, User } from "lucide-react";
 import { useParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { UserAvatar } from "../user-avatar";
+import { ActionTooltip } from "../action-tooltip";
 
 interface ServerMemberProps {
     member: Member & { profile: Profile };
     server: Server;
+    profile: Profile;
 }
 
 const roleIconMap = {
@@ -20,7 +22,8 @@ const roleIconMap = {
 
 export const ServerMember = ({
     member,
-    server
+    server,
+    profile
 }: ServerMemberProps) => {
     const params = useParams();
     const router = useRouter();
@@ -28,12 +31,26 @@ export const ServerMember = ({
     const icon = roleIconMap[member.role]
 
     return (
-        <button onClick={() => {}} className={cn("group px-2 py-2 rounded-md flex items-center gap-x-2 w-full hover:bg-lmsbg dark:hover:bg-dmsbg transition mb-1", params?.memberId == member.id && "bg-lmsbg dark:bg-dmsbg")}>
-            <UserAvatar src={member.profile.imageUrl} className="h-6 w-6 md:h-8 md:w-8"/>
-            {icon}
-            <p className={cn("line-clamp-1 font-semibold text-sm text-lmtext group-hover:text-lmlinks dark:text-dmtext dark:group-hover:text-dmlinks transition", params?.memberId === member.id && "text-primary dark:text-dmeffects dark:group-hover:text-dmlinks")}>
-                {member.profile.name}
-            </p>
-        </button>
+        <div>
+            {profile.id == member.profile.id ? (
+                <ActionTooltip side="left" label="You">
+                    <button className={cn("group px-2 py-2 rounded-md flex items-center gap-x-2 w-full hover:bg-lmsbg dark:hover:bg-dmsbg transition mb-1", params?.memberId == member.id && "bg-lmsbg dark:bg-dmsbg")}>
+                        <UserAvatar src={member.profile.imageUrl} className="h-6 w-6 md:h-8 md:w-8"/>
+                        {icon}
+                        <p className={cn("line-clamp-1 font-semibold text-sm text-lmtext group-hover:text-lmlinks dark:text-dmtext dark:group-hover:text-dmlinks transition", params?.memberId === member.id && "text-primary dark:text-dmeffects dark:group-hover:text-dmlinks")}>
+                            {member.profile.name}
+                        </p>
+                    </button>
+                </ActionTooltip>
+            ): (
+                <button onClick={() => {}} className={cn("group px-2 py-2 rounded-md flex items-center gap-x-2 w-full hover:bg-lmsbg dark:hover:bg-dmsbg transition mb-1", params?.memberId == member.id && "bg-lmsbg dark:bg-dmsbg")}>
+                    <UserAvatar src={member.profile.imageUrl} className="h-6 w-6 md:h-8 md:w-8"/>
+                    {icon}
+                    <p className={cn("line-clamp-1 font-semibold text-sm text-lmtext group-hover:text-lmlinks dark:text-dmtext dark:group-hover:text-dmlinks transition", params?.memberId === member.id && "text-primary dark:text-dmeffects dark:group-hover:text-dmlinks")}>
+                        {member.profile.name}
+                    </p>
+                </button>
+            )}
+        </div>
     )
 }
