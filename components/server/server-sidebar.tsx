@@ -114,7 +114,7 @@ const ServerSidebar = async ({
                                 icon: iconMap[channel.type],
                             }))
                         },
-                    // TODO: change this later to display on sheet
+                    // TODO: change this later to display on sheet, have to get this on the sheet component and follow from 6:35:10
                         {
                             label: "Members",
                             type: "channel",
@@ -127,7 +127,7 @@ const ServerSidebar = async ({
                     ]}
                 />
             </div>
-            <Separator className="bg-zinc-200 dark:bg-zinc-700 rounded-md my-2"/>
+            <Separator className="bg-lmeffects/10 dark:bg-dmeffects/10 rounded-md my-2"/>
             {!!textChannels?.length && (
                 <div className="mb-2">
                     <ServerSection
@@ -137,6 +137,42 @@ const ServerSidebar = async ({
                         label="Text Channels"
                     />
                     {textChannels.map((channel) => (
+                        <ServerChannel
+                            key={channel.id}
+                            channel={channel}
+                            server={server}
+                        />
+                    ))}
+                </div>
+            )}
+            <Separator className="bg-lmeffects/10 dark:bg-dmeffects/10 rounded-md my-2"/>
+            {!!audioChannels?.length && (
+                <div className="mb-2">
+                    <ServerSection
+                        sectionType="channels"
+                        channelType={ChannelType.AUDIO}
+                        role={role}
+                        label="Voice Channels"
+                    />
+                    {audioChannels.map((channel) => (
+                        <ServerChannel
+                            key={channel.id}
+                            channel={channel}
+                            server={server}
+                        />
+                    ))}
+                </div>
+            )}
+            <Separator className="bg-lmeffects/10 dark:bg-dmeffects/10 rounded-md my-2"/>
+            {!!videoChannels?.length && (
+                <div className="mb-2">
+                    <ServerSection
+                        sectionType="channels"
+                        channelType={ChannelType.VIDEO}
+                        role={role}
+                        label="Video Channels"
+                    />
+                    {videoChannels.map((channel) => (
                         <ServerChannel
                             key={channel.id}
                             channel={channel}
