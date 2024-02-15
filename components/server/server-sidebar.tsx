@@ -145,9 +145,9 @@ const ServerSidebar = async ({
                     ))}
                 </div>
             )}
-            <Separator className="bg-lmeffects/10 dark:bg-dmeffects/10 rounded-md my-2"/>
             {!!audioChannels?.length && (
                 <div className="mb-2">
+                    <Separator className="bg-lmeffects/10 dark:bg-dmeffects/10 rounded-md my-2"/>
                     <ServerSection
                         sectionType="channels"
                         channelType={ChannelType.AUDIO}
@@ -163,9 +163,9 @@ const ServerSidebar = async ({
                     ))}
                 </div>
             )}
-            <Separator className="bg-lmeffects/10 dark:bg-dmeffects/10 rounded-md my-2"/>
             {!!videoChannels?.length && (
                 <div className="mb-2">
+                    <Separator className="bg-lmeffects/10 dark:bg-dmeffects/10 rounded-md my-2"/>
                     <ServerSection
                         sectionType="channels"
                         channelType={ChannelType.VIDEO}
