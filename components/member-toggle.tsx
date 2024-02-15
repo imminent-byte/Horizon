@@ -1,18 +1,17 @@
-import { Users } from "lucide-react"
-
 import {
     Sheet,
     SheetContent,
     SheetTrigger
 } from "@/components/ui/sheet";
 import { Button } from "./ui/button";
+import { Users } from "lucide-react"
 
 export const MemberToggle = ({
 }) => {
     return (
         <Sheet>
             <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="md:hidden" >
+                <Button variant="ghost" size="icon">
                     <Users className="text-dmeffects/55"/>
                 </Button>
             </SheetTrigger>
