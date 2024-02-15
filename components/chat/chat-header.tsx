@@ -1,4 +1,5 @@
 import { Menu, Text } from "lucide-react";
+import { MobileToggle } from "../mobile-toggle";
 
 interface ChatHeaderProps {
     serverId: string;
@@ -15,7 +16,7 @@ export const ChatHeader = ({
 }: ChatHeaderProps) => {
     return (
         <div className="text-md font-semibold px-3 flex items-center h-12 border-neutral-200 dark:border-dmeffects/55 border-b-2">
-            <Menu className="text-dmeffects/55 mr-2"/>
+            <MobileToggle serverId={serverId}/>
             {type === "channel" && (
                 <Text className="w-5 h-5 text-lmeffects dark:text-dmlinks mr-2"/>
             )}
