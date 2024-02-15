@@ -1,5 +1,6 @@
-import { Menu, Text } from "lucide-react";
+import { Text } from "lucide-react";
 import { MobileToggle } from "../mobile-toggle";
+import { MemberToggle } from "../member-toggle";
 
 interface ChatHeaderProps {
     serverId: string;
@@ -15,14 +16,19 @@ export const ChatHeader = ({
     imageUrl
 }: ChatHeaderProps) => {
     return (
-        <div className="text-md font-semibold px-3 flex items-center h-12 border-neutral-200 dark:border-dmeffects/55 border-b-2">
-            <MobileToggle serverId={serverId}/>
-            {type === "channel" && (
-                <Text className="w-5 h-5 text-lmeffects dark:text-dmlinks mr-2"/>
-            )}
-            <p className="font-semibold text-md text-lmtext dark:text-dmlinks">
-                {name}
-            </p>
+        <div className="text-md font-semibold px-3 flex items-center justify-between h-12 border-neutral-200 dark:border-dmeffects/55 border-b-2">
+            <div className="flex items-center justify-center">
+                <MobileToggle serverId={serverId}/>
+                {type === "channel" && (
+                    <Text className="w-5 h-5 text-lmeffects dark:text-dmlinks mr-2"/>
+                )}
+                <p className="font-semibold text-md text-lmtext dark:text-dmlinks">
+                    {name}
+                </p>
+            </div>
+            <div>
+                <MemberToggle/>
+            </div>
         </div>
     )
 }
