@@ -62,6 +62,7 @@ export const MemberToggle = async ({
                 </Button>
             </SheetTrigger>
             <SheetContent side="right">
+                {/* mayeb change appearnce later */}
             {!!members?.length && (
             <div className="mb-2">
                 <ServerSection
