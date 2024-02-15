@@ -1,5 +1,7 @@
 'use client';
 
+import queryString from "query-string";
+
 import {
     Dialog,
     DialogContent,
@@ -20,19 +22,26 @@ export const DeleteChannelModal = () => {
     const router = useRouter();
 
     const isModalOpen = isOpen && type === "deleteChannel";
-    const { server } = data;
+    const { server, channel } = data;
 
     const [isLoading, setIsLoading] = useState(false);
 
     const onClick = async () => {
         try {
-            setIsLoading(true)
+            setIsLoading(true);
+
+            const url = queryString.stringifyUrl({
+                url: `/api/channels/${channel?.id}`,
+                query: {
+                    serverId: server?.id
+                }
+            })
 
             await axios.delete(`/api/servers/${server?.id}`);
 
             onClose();
             router.refresh();
-            router.push('/');
+            router.push(`/servers/${server?.id}`);
         } catch (error) {
             console.log(error);
         } finally {
@@ -49,10 +58,10 @@ export const DeleteChannelModal = () => {
             ">
                 <DialogHeader className="pt-8 px-6">
                     <DialogTitle className="text-2xl text-center font-bold">
-                        Delete Server
+                        Delete Channel
                     </DialogTitle>
                     <DialogDescription className="text-center dark:text-dmtext text-lmtext">
-                        Are you sure you want to Delete <span className="font-semibold text-dmlinks">{server?.name}</span> ?
+                        Are you sure you want to Delete <span className="font-semibold text-dmlinks">{channel?.name}</span> ?
                         <br/>
                         This action <span className="text-rose-500 font-bold">CANNOT</span> be undone!
                     </DialogDescription>
