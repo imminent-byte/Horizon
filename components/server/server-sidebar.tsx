@@ -5,12 +5,16 @@ import db from "@/lib/db";
 
 import { ChannelType, MemberRole } from "@prisma/client";
 
-import ServerHeader from "./server-header";
-import { ServerSearch } from "./server-search";
 
 import { ScrollArea } from "../ui/scroll-area";
 
 import { Mic, Shield, ShieldCheck, Text, User, Video } from "lucide-react";
+import { Separator } from "../ui/separator";
+
+import ServerHeader from "./server-header";
+import { ServerSearch } from "./server-search";
+import { ServerSection } from "./server-section";
+import { ServerChannel } from "./server-channel";
 
 interface ServerSidebarProps {
     serverId: string;
@@ -110,9 +114,37 @@ const ServerSidebar = async ({
                                 icon: iconMap[channel.type],
                             }))
                         },
+                    // TODO: change this later to display on sheet
+                        {
+                            label: "Members",
+                            type: "channel",
+                            data: members?.map((member) => ({
+                                id: member.id,
+                                name: member.profile.name,
+                                icon: roleIconMap[member.role],
+                            }))
+                        },
                     ]}
                 />
             </div>
+            <Separator className="bg-zinc-200 dark:bg-zinc-700 rounded-md my-2"/>
+            {!!textChannels?.length && (
+                <div className="mb-2">
+                    <ServerSection
+                        sectionType="channels"
+                        channelType={ChannelType.TEXT}
+                        role={role}
+                        label="Text Channels"
+                    />
+                    {textChannels.map((channel) => (
+                        <ServerChannel
+                            key={channel.id}
+                            channel={channel}
+                            server={server}
+                        />
+                    ))}
+                </div>
+            )}
         </ScrollArea>
     </div>
   )
