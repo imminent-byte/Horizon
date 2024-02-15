@@ -30,7 +30,7 @@ export const NavigationItem = ({
                 <div className={cn(
                  "absolute left-0 mr-2 bg-primary rounded-full transition-all duration-200",
                     params?.serverId !== id && "group-hover:h-[8px] group-hover:w-[8px] group-hover:scale-100",
-                    params?.serverId === id ? "w-[10px] h-[10px]" : 'scale-0'
+                    params?.serverId === id ? "w-[10px] h-[10px] bg-dmlinks dark:bg-dmlinks" : 'scale-0'
                 )}/>
                 <div className={cn(
                     "relative group flex mx-3 h-[48px] w-[48px] rounded-[24px] group-hover:rounded-[16px] transition-all overflow-hidden",
