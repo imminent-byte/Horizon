@@ -8,6 +8,6 @@ export const SocketIndicator = () => {
   const { isConnected } = useSocket();
 
   return (
-    <div className={cn("h-2 w-5 origin-center bg-dmeffects rounded-full transition-all duration-500", isConnected ? "h-4 w-4 bg-dmlinks" : "")}/>
+    <div className={cn("h-2 w-5 origin-center bg-dmeffects rounded-full mr-[0.35rem] transition-all duration-500", isConnected ? "h-4 w-4 bg-dmlinks" : "")}/>
   )
 }
