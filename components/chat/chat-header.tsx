@@ -1,6 +1,7 @@
 import { Text } from "lucide-react";
 import { MobileToggle } from "../mobile-toggle";
 import { MemberToggle } from "../member-toggle";
+import { UserAvatar } from "../user-avatar";
 
 interface ChatHeaderProps {
     serverId: string;
@@ -21,6 +22,12 @@ export const ChatHeader = ({
                 <MobileToggle serverId={serverId}/>
                 {type === "channel" && (
                     <Text className="w-5 h-5 text-lmeffects dark:text-dmlinks mr-2"/>
+                )}
+                {type === "conversation" && (
+                    <UserAvatar
+                        src={imageUrl}
+                        className="h-6 w-6 md:h-8 md:w-8 mr-2"
+                    />
                 )}
                 <p className="font-semibold text-md text-lmtext dark:text-dmlinks">
                     {name}
