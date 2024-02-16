@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/components/providers/theme-provider";
 import { ModalProvider } from "@/components/providers/modal-provider";
 
 import { cn } from "@/lib/utils";
+import { SocketProvider } from "@/components/providers/socket-provider";
 
 const font = Poppins({weight: ['300'] , subsets: ["latin"] });
 
@@ -33,8 +34,10 @@ export default function RootLayout({
             enableSystem={false}
             storageKey="horizon-theme"
           >
-            <ModalProvider/>
-            {children}
+            <SocketProvider>
+              <ModalProvider/>
+              {children}
+            </SocketProvider>
           </ThemeProvider>
         </body>
       </html>

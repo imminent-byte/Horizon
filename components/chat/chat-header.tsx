@@ -2,6 +2,7 @@ import { Text } from "lucide-react";
 import { MobileToggle } from "../mobile-toggle";
 import { MemberToggle } from "../member-toggle";
 import { UserAvatar } from "../user-avatar";
+import { SocketIndicator } from "../socket-indicator";
 
 interface ChatHeaderProps {
     serverId: string;
@@ -33,7 +34,10 @@ export const ChatHeader = ({
                     {name}
                 </p>
             </div>
-            <div>
+            <div className="flex items-center justify-center">
+                <div className="ml-auto flex items-center">
+                    <SocketIndicator/>
+                </div>
                 <MemberToggle serverId={serverId}/>
             </div>
         </div>
