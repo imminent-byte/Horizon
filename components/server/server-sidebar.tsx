@@ -114,7 +114,6 @@ const ServerSidebar = async ({
                                 icon: iconMap[channel.type],
                             }))
                         },
-                    // TODO: change this later to display on sheet, have to get this on the sheet component and follow from 6:35:10, complete that then follow 7:15:00, then follow 7:18:00
                         {
                             label: "Members",
                             type: "channel",
