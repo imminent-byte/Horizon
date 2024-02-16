@@ -16,6 +16,7 @@ import { Paperclip, Smile } from 'lucide-react';
 
 import axios from 'axios';
 import queryString from 'query-string';
+import { useModal } from '@/hooks/use-modal-store';
 
 interface ChatInputProps {
     apiUrl: string;
@@ -34,6 +35,8 @@ export const ChatInput = ({
     name,
     type
 }: ChatInputProps) => {
+    const { onOpen } = useModal();
+
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -68,7 +71,7 @@ export const ChatInput = ({
                                 <div className='relative p-4 pb-6'>
                                     <button
                                         type='button'
-                                        onClick={() => {}}
+                                        onClick={() => onOpen("messageFile", { apiUrl, query })}
                                         className='absolute top-7 left-8 h-[24px] w-[24px] bg-lmeffects dark:bg-dmeffects hover:bg-lmlinks dark:hover:bg-dmlinks transition rounded-full p-1 flex items-center justify-center'
                                     >
                                         <Paperclip className='text-lmtext dark:text-dmtext dark:hover:text-dmbg'/>
