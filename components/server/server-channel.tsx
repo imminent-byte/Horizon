@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 
 import { Channel, ChannelType, MemberRole, Server } from "@prisma/client"
 
-import { Edit, Lock, Mic, Text, Trash, Video } from "lucide-react";
+import { Edit, Lock, Mic, Text, Trash, User, Video } from "lucide-react";
 
 import { useParams, useRouter } from "next/navigation";
 import { ActionTooltip } from "../action-tooltip";
@@ -58,6 +58,11 @@ export const ServerChannel = ({
                     </ActionTooltip>
                     <ActionTooltip label="Delete">
                         <Trash onClick={(e) => onAction(e, "deleteChannel")}
+                            className="hidden group-hover:block w-4 h-4 text-lmtext hover:text-lmeffects dark:text-dmtext dark:hover:text-dmlinks transition"
+                        />
+                    </ActionTooltip>
+                    <ActionTooltip label="ROLE">
+                        <User onClick={() => console.log(role)}
                             className="hidden group-hover:block w-4 h-4 text-lmtext hover:text-lmeffects dark:text-dmtext dark:hover:text-dmlinks transition"
                         />
                     </ActionTooltip>

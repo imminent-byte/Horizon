@@ -61,7 +61,7 @@ export const MemberToggle = async ({
                     <Users className="text-dmeffects/55"/>
                 </Button>
             </SheetTrigger>
-            <SheetContent side="right">
+            <SheetContent side="right" className="bg-lmbg dark:bg-dmbg">
                 {/* mayeb change appearnce later */}
             {!!members?.length && (
             <div className="mb-2">

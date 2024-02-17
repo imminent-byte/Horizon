@@ -15,7 +15,7 @@ interface ServerMemberProps {
 }
 
 const roleIconMap = {
-    [MemberRole.GUEST]: <User/>,
+    [MemberRole.GUEST]: <User className="h-4 w-4 mr-2"/>,
     [MemberRole.MODERATOR]: <ShieldCheck className="h-4 w-4 mr-2 text-dmeffects"/>,
     [MemberRole.ADMIN]: <Shield className="h-4 w-4 mr-2 text-dmlinks"/>
 }

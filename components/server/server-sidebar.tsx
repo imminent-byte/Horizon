@@ -137,6 +137,7 @@ const ServerSidebar = async ({
                     />
                     {textChannels.map((channel) => (
                         <ServerChannel
+                            role={role}
                             key={channel.id}
                             channel={channel}
                             server={server}
@@ -155,6 +156,7 @@ const ServerSidebar = async ({
                     />
                     {audioChannels.map((channel) => (
                         <ServerChannel
+                            role={role}
                             key={channel.id}
                             channel={channel}
                             server={server}
@@ -173,6 +175,7 @@ const ServerSidebar = async ({
                     />
                     {videoChannels.map((channel) => (
                         <ServerChannel
+                            role={role}
                             key={channel.id}
                             channel={channel}
                             server={server}
