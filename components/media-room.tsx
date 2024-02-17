@@ -36,7 +36,7 @@ export const MediaRoom = ({
         console.log(e);
       }
     })()
-  }, [profile?.name, chatId]);
+  }, [profile, profile?.name, chatId]);
 
   if (token === "") {
     return (

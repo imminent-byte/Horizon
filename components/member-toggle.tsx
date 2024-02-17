@@ -71,8 +71,9 @@ export const MemberToggle = async ({
                     label="Members"
                     server={server}
                 />
-                {members.map((member) => (
+                {members.map((member, i) => (
                     <ServerMember
+                        key={i}
                         member={member}
                         server={server}
                         profile={profile}
