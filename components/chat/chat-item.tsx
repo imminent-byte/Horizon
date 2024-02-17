@@ -130,7 +130,7 @@ export const ChatItem = ({
     const isImage = !isPDF && fileUrl;
 
     return (
-        <div className="relative group flex items-center hover:bg-dmlinks/55 p-4 transition w-full">
+        <div className="relative group flex items-center hover:bg-dmlinks/5 p-4 transition w-full">
             <div className="group flex gap-x-2 items-start w-full">
                 <div onClick={onMemberClick} className="cursor-pointer hover:drop-shadow-md transition">
                     <UserAvatar src={member.profile.imageUrl}/>
@@ -199,8 +199,9 @@ export const ChatItem = ({
                                                 <FormControl>
                                                     <div className="relative w-full">
                                                         <Input
+                                                            autoFocus
                                                             disabled={isLoading}
-                                                            className="p-2 bg-zinc-200/90 dark:bg-zinc-700/75 border-none border-0 focus-visible:ring-0 focus-visible:ring-offset-0 text-zinc-600 dark:text-zinc-200"
+                                                            className="p-2 bg-lmeffects/90 dark:bg-dmeffects/5 border-none border-0 focus-visible:ring-0 focus-visible:ring-offset-0 text-lmtext dark:text-dmtext"
                                                             placeholder="Edit Message"
                                                             {...field}
                                                         />
@@ -209,7 +210,7 @@ export const ChatItem = ({
                                             </FormItem>
                                         )}
                                     />
-                                    <Button disabled={isLoading} size="sm" variant="ghost">
+                                    <Button disabled={isLoading} size="sm" variant="ghost" className="hover:bg-lmlinks dark:hover:bg-dmlinks hover:text-lmtext dark:hover:text-dmtext">
                                         Edit
                                     </Button>
                                 </form>

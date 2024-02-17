@@ -59,7 +59,7 @@ export const ChatInput = ({
 
             await axios.post(url, value);
             form.reset();
-            router.refresh();``
+            router.refresh();
         } catch (error) {
             console.log(error)
         }
@@ -83,7 +83,7 @@ export const ChatInput = ({
                                         <Paperclip className='text-lmtext dark:text-dmtext dark:hover:text-dmbg'/>
                                     </button>
                                     <Input
-                                        disabled={isLoading}
+                                        autoFocus
                                         placeholder={`Message ${type === "conversation" ? name : name}`}
                                         className='px-14 py-6 bg-lmsbg dark:bg-dmeffects/5 border-none border-0 focus-visible:ring-0 focus-visible:ring-offset-0 text-lmtext dark:text-dmtext'
                                         {...field}

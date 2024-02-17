@@ -58,7 +58,7 @@ export const ServerSearch = ({
                 <p className="font-semibold text-sm text-lmlinks dark:text-dmtext group-hover:text-lmlinks dark:group-hover:text-dmlinks transition duration-700">
                     Search
                 </p>
-                <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground ml-auto">
+                <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border border-dmlinks/55 dark:bg-dmbg/5 px-1.5 font-mono text-[10px] font-medium text-muted-foreground ml-auto">
                     <span><ChevronUp className="h-3 w-3"/></span>K
                 </kbd>
             </button>
