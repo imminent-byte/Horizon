@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 
 import { CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "../ui/command";
 import { useParams, useRouter } from "next/navigation";
+import { Member, Profile } from "@prisma/client";
 
 interface ServerSearchProps {
     data: {
@@ -17,10 +18,12 @@ interface ServerSearchProps {
             id: string;
         }[] | undefined
     }[]
+    profile: Profile
 }
 
 export const ServerSearch = ({
-    data
+    data,
+    profile
 }: ServerSearchProps) => {
     const [open, setOpen] = useState(false);
 
@@ -74,12 +77,20 @@ export const ServerSearch = ({
                         return (
                             <CommandGroup key={label} heading={label}>
                                 {data?.map(({ id, icon, name }) => {
+                                    {if(profile.name === name) {
+                                        return (
+                                        <CommandItem key={id}>
+                                                {icon}
+                                                <span>{name}</span><span className="text-xs text-dmeffects ml-2">YOU</span>
+                                        </CommandItem>
+                                        )
+                                    } else 
                                     return (
                                         <CommandItem key={id} onSelect={() => onClick({ id, type })}>
                                             {icon}
                                             <span>{name}</span>
                                         </CommandItem>
-                                    )
+                                    )}
                                 })}
                             </CommandGroup>
                         )
