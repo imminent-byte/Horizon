@@ -3,27 +3,29 @@
 import { useEffect, useState } from "react";
 import { LiveKitRoom, VideoConference } from "@livekit/components-react";
 import "@livekit/components-styles";
-import { useUser } from "@clerk/nextjs";
+import { currentProfile } from "@/lib/current-profile";
 import { Loader2 } from "lucide-react";
+import { Profile } from "@prisma/client";
 
 interface MediaRoomProps {
+  profile: Profile;
   chatId: string;
   video: boolean;
   audio: boolean;
 };
 
 export const MediaRoom = ({
+  profile,
   chatId,
   video,
   audio
 }: MediaRoomProps) => {
-  const { user } = useUser();
   const [token, setToken] = useState("");
 
   useEffect(() => {
-    if (!user?.firstName || !user?.lastName) return;
+    if (!profile) return;
 
-    const name = `${user.firstName} ${user.lastName}`;
+    const name = `${profile?.name}`;
 
     (async () => {
       try {
@@ -34,7 +36,7 @@ export const MediaRoom = ({
         console.log(e);
       }
     })()
-  }, [user?.firstName, user?.lastName, chatId]);
+  }, [profile?.name, chatId]);
 
   if (token === "") {
     return (
