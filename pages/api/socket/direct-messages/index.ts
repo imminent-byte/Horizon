@@ -64,8 +64,6 @@ export default async function handler (
             return res.status(404).json({ error: "Conversation Not Found" });
         }
 
-        
-
         const member = conversation.memberOne.profileId === profile.id ? conversation.memberOne : conversation.memberTwo
 
         if(!member) {
