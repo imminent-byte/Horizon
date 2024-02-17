@@ -84,6 +84,7 @@ export const ChatInput = ({
                                     </button>
                                     <Input
                                         autoFocus
+                                        disabled={isLoading}
                                         placeholder={`Message ${type === "conversation" ? name : name}`}
                                         className='px-14 py-6 bg-lmsbg dark:bg-dmeffects/5 border-none border-0 focus-visible:ring-0 focus-visible:ring-offset-0 text-lmtext dark:text-dmtext'
                                         {...field}
