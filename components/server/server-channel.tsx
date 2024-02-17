@@ -61,11 +61,6 @@ export const ServerChannel = ({
                             className="hidden group-hover:block w-4 h-4 text-lmtext hover:text-lmeffects dark:text-dmtext dark:hover:text-dmlinks transition"
                         />
                     </ActionTooltip>
-                    <ActionTooltip label="ROLE">
-                        <User onClick={() => console.log(role)}
-                            className="hidden group-hover:block w-4 h-4 text-lmtext hover:text-lmeffects dark:text-dmtext dark:hover:text-dmlinks transition"
-                        />
-                    </ActionTooltip>
                 </div>
             )}
             {channel.name === "general" && (
