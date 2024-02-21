@@ -6,6 +6,7 @@ import "@livekit/components-styles";
 import { currentProfile } from "@/lib/current-profile";
 import { Loader2 } from "lucide-react";
 import { Profile } from "@prisma/client";
+import { useUser } from "@clerk/nextjs";
 
 interface MediaRoomProps {
   profile: Profile;
@@ -20,12 +21,13 @@ export const MediaRoom = ({
   video,
   audio
 }: MediaRoomProps) => {
+  const { user } = useUser();
   const [token, setToken] = useState("");
 
   useEffect(() => {
     if (!profile) return;
 
-    const name = `${profile?.name}`;
+    const name = `${profile?.name}` || `${user?.firstName} ${user?.lastName}`;
 
     (async () => {
       try {
