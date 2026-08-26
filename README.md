@@ -112,13 +112,13 @@ The frontend uses:
 - Zustand for client-side application state
 - React Query for asynchronous server-state management and data fetching
 ## Getting Started
-## Prerequisites
+### Prerequisites
 Node.js
 MySQL database
 Clerk account
 LiveKit account
 UploadThing account
-## Installation
+### Installation
 Clone the repository:
 ```
 git clone https://github.com/imminent-byte/Horizon.git
